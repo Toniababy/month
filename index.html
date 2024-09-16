@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="input" placeholder="find month" />
+    <button id="button">Find</button>
+    <div id="result"></div>
+</body>
+
+</html>
+<script>
+function getElm(elm){
+    return document.getElementById(elm);
+}
+const result = getElm("result");
+const input = getElm("input");
+const button = getElm("button");
+
+    const months = [
+        ["january", 31],
+        ["febuary", 29],
+        ["march", 31],
+        ["april", 30],
+        ["may", 31],
+        ["june", 30],
+        ["july", 31],
+        ["august", 31],
+        ["september", 30],
+        ["october", 31],
+        ["november", 30],
+        ["december", 31],
+
+    ]
+    function findDays(mon) {
+        let validInput = false;
+        for (var i = 0; i < months.length; i++) {
+            let currentMonth = months[i];
+            if (currentMonth[0] === String(mon).toLocaleLowerCase()) {
+                validInput = true;
+                result.innerText = `${mon} has ${currentMonth[1]} days`
+                break;
+            } else {
+                continue;
+            }
+        }
+        if (!validInput) {
+             result.innerText = "Invalid input"
+        }
+    }
+    button.addEventListener("click",function(){
+        let inputValue = input.value;
+        findDays(inputValue);
+    })
+</script>
