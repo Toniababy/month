@@ -41,7 +41,7 @@ const button = getElm("button");
         let validInput = false;
         for (var i = 0; i < months.length; i++) {
             let currentMonth = months[i];
-            if (currentMonth[0] === String(mon).toLocaleLowerCase()) {
+            if (currentMonth[0] === String(mon).toLowerCase()) {
                 validInput = true;
                 result.innerText = `${mon} has ${currentMonth[1]} days`
                 break;
